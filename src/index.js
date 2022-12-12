@@ -5,10 +5,10 @@ import { Notify } from 'notiflix';
 
 
 const DEBOUNCE_DELAY = 300;
-const inputRef = document.querySelector('input#search-box');
-const countryRef = document.querySelector('.country-info');
+const input = document.querySelector('input#search-box');
+const country = document.querySelector('.country-info');
 
-inputRef.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
+input.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 
 function onInputSearch(e) {
   const countryName = e.target.value.trim();
@@ -42,7 +42,7 @@ function renderCountriesMarkup(countries) {
 
     getCountryInfoVisible();
 
-    countryRef.innerHTML = `<ul class="country-list">${countriesListMarkup}</ul>`;
+    country.innerHTML = `<ul class="country-list">${countriesListMarkup}</ul>`;
   }
 
   if (countries.length === 1) {
@@ -51,11 +51,11 @@ function renderCountriesMarkup(countries) {
 
     getCountryInfoVisible();
 
-    countryRef.innerHTML = `
+    country.innerHTML = `
         <div class="title__wrapper">
-            <img src="${flags.svg}" alt="${name.common}" width="25" height="25" />
-            <h1 class="title">${name.official}</h1>
-        </div>
+        <img src="${flags.svg}" alt="${name.common}" width="55" height="35"/>
+        <h1 class="title">${name.official}</h1>
+                         
         <p class="country__properties">
             <span>Capital</span>: ${capital}
         </p>
@@ -64,7 +64,8 @@ function renderCountriesMarkup(countries) {
         </p>
         <p class="country__properties">
             <span>Languages</span>: ${langs}
-        </p>`;
+        </p>
+        </div>`;
   }
 }
 
@@ -74,12 +75,12 @@ function onFetchError(error) {
 }
 
 function resetCountryInfo() {
-  countryRef.classList.add('hidden');
-  countryRef.innerHTML = '';
+  country.classList.add('hidden');
+  country.innerHTML = '';
 }
 
 function getCountryInfoVisible() {
-  countryRef.classList.remove('hidden');
+  country.classList.remove('hidden');
 }
 
 
