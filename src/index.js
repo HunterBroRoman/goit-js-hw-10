@@ -3,7 +3,6 @@ import { fetchCountries } from './fetchCountries';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 
-
 const DEBOUNCE_DELAY = 300;
 const input = document.querySelector('input#search-box');
 const country = document.querySelector('.country-info');
@@ -82,8 +81,3 @@ function resetCountryInfo() {
 function getCountryInfoVisible() {
   country.classList.remove('hidden');
 }
-
-
-
-
-
