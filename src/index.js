@@ -10,15 +10,17 @@ const country = document.querySelector('.country-info');
 input.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 
 function onInputSearch(e) {
-  const countryName = e.target.value.trim();
+  const countryName = e.target.value.trim();//получаем название страны
 
   if (countryName === '') {
     resetCountryInfo();
 
-    return;
+    return;// если поле пустое - выходим
   }
 
-  fetchCountries(countryName).then(renderCountriesMarkup).catch(onFetchError);
+  fetchCountries(countryName)
+  .then(renderCountriesMarkup)
+  .catch(onFetchError);
 }
 
 function renderCountriesMarkup(countries) {
