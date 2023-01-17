@@ -13,7 +13,7 @@ function onInputSearch(e) {
   const countryName = e.target.value.trim();//получаем название страны
 
   if (countryName === '') {
-    resetCountryInfo();
+    resetCountryInfo();// запускаем функцию 
 
     return;// если поле пустое - выходим
   }
